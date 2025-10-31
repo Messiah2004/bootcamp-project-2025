@@ -1,0 +1,14 @@
+:root {
+  --border: rgba(224, 26, 36, 0.25);
+  --muted: #cbbfbf;
+}
+
+.footer {
+  background: linear-gradient(180deg, #12090a 0%, #0e0708 100%);
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 40px;
+  font-size: 0.9rem;
+}

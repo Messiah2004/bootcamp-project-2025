@@ -1,0 +1,95 @@
+:root {
+  --card: #1b0a0b;
+  --card-2: #16090a;
+  --heading: #f7f3f1;
+  --text: #efe7e5;
+  --muted: #cbbfbf;
+  --border: rgba(224, 26, 36, 0.25);
+  --rose: #ff3b4a;
+  --shadow-soft: 0 8px 20px rgba(0, 0, 0, 0.45);
+  --shadow-strong: 0 10px 28px rgba(224, 26, 36, 0.12);
+  --grad-card: linear-gradient(
+    180deg,
+    rgba(255, 59, 74, 0.06) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.2s ease, box-shadow 0.25s ease;
+  max-width: 340px;
+  width: 100%;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--grad-card);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-strong);
+}
+
+.imageWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+
+.imageWrap img {
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.card:hover .imageWrap img {
+  transform: scale(1.05);
+}
+
+.body {
+  padding: 18px 20px;
+}
+
+.title {
+  color: var(--heading);
+  font-family: "Playfair Display", serif;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+  transition: color 0.2s ease;
+}
+
+.cardLink:hover .title {
+  color: var(--rose);
+}
+
+.desc {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  margin-bottom: 10px;
+}
+
+.meta {
+  color: var(--text);
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+@media (max-width: 700px) {
+  .card {
+    max-width: 100%;
+  }
+}

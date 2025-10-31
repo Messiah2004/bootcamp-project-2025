@@ -1,0 +1,75 @@
+:root {
+  --card: #1b0a0b;
+  --border: rgba(224, 26, 36, 0.25);
+  --heading: #f7f3f1;
+  --text: #efe7e5;
+  --muted: #cbbfbf;
+  --rose: #ff3b4a;
+  --shadow-soft: 0 8px 20px rgba(0, 0, 0, 0.45);
+}
+
+.container {
+  max-width: 1000px;
+  margin: 24px auto 40px;
+  padding: 0 16px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.3s ease;
+}
+
+.imageWrap {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.imageWrap img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.body {
+  padding: 16px;
+}
+
+.title {
+  font-family: "Playfair Display", serif;
+  font-size: 1.2rem;
+  color: var(--heading);
+  margin-bottom: 6px;
+}
+
+.desc {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  margin-bottom: 8px;
+}
+
+.meta {
+  color: var(--rose);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 600px) {
+  .grid {
+    gap: 16px;
+  }
+  .imageWrap {
+    height: 180px;
+  }
+}

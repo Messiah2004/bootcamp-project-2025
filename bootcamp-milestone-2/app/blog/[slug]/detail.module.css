@@ -1,0 +1,55 @@
+.container {
+  max-width: 960px;
+  margin: 24px auto 40px;
+  padding: 0 16px;
+}
+
+.article {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 14px;
+  background: #fff;
+  padding: 18px;
+}
+
+.title {
+  margin: 0 0 6px;
+  font-size: 1.7rem;
+}
+.meta {
+  margin: 0 0 12px;
+  color: #666;
+}
+
+.heroWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 12px;
+  margin: 8px 0 14px;
+}
+
+.body {
+  line-height: 1.65;
+  color: #222;
+}
+
+.hr {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 0, 0, 0.12),
+    transparent
+  );
+  margin: 16px 0;
+}
+
+.back {
+  text-decoration: none;
+  color: #0b5fff;
+}
+.back:hover {
+  text-decoration: underline;
+}

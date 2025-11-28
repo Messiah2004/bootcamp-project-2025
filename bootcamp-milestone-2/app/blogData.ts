@@ -3,7 +3,7 @@ export type Blog = {
   date: string;
   description: string;
   image: string;
-  imageAlt: string;
+  image_alt: string;
   slug: string;
 };
 
@@ -14,7 +14,7 @@ export const blogData: Blog[] = [
     description:
       "Everyone I knew told me that Iraq would be dangerous... and so I saw wonders!",
     image: "/IshtarGate.jpg",
-    imageAlt: "Ishtar Gate",
+    image_alt: "Ishtar Gate",
     slug: "blogpost1",
   },
   {
@@ -23,7 +23,7 @@ export const blogData: Blog[] = [
     description:
       "Standing before the Leshan Buddha felt like staring into history.",
     image: "/LeshanBuddha.jpg",
-    imageAlt: "Leshan Giant Buddha",
+    image_alt: "Leshan Giant Buddha",
     slug: "blogpost2",
   },
   {
@@ -32,7 +32,7 @@ export const blogData: Blog[] = [
     description:
       "COYA’s chicken chaufa—perfect balance of spice and tenderness.",
     image: "/foodanddrink_flavor1-2-ef115194acfcd440-scaled.webp",
-    imageAlt: "Chicken chaufa at COYA",
+    image_alt: "Chicken chaufa at COYA",
     slug: "blogpost3",
   },
 ];

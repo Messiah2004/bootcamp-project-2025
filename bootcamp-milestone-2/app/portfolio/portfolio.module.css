@@ -109,3 +109,20 @@
     height: auto;
   }
 }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.imageLink {
+  display: block;
+}
+
+.error,
+.empty {
+  text-align: center;
+  margin-top: 20px;
+  color: var(--muted);
+}

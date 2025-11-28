@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import connectDB from "@/database/db";
 import BlogModel, { type Blog } from "@/database/blogSchema";
 import styles from "./detail.module.css";
+import Comment from "@/components/Comment";
 
 type Params = { slug: string };
 
@@ -63,6 +64,16 @@ export default async function BlogDetail({
         </div>
 
         <p className={styles.body}>{post.content}</p>
+
+        {post.comments && post.comments.length > 0 && (
+          <>
+            <hr className={styles.hr} />
+            <h2 className={styles.commentsTitle}>Comments</h2>
+            {post.comments.map((c, idx) => (
+              <Comment key={idx} comment={c} />
+            ))}
+          </>
+        )}
 
         <hr className={styles.hr} />
         <p>

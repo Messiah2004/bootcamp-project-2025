@@ -1,1 +1,26 @@
 @import "tailwindcss";
+
+:root {
+  --bg: #100607;
+  --bg-deep: #0b0405;
+  --text: #efe7e5;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  background: radial-gradient(
+      1200px 600px at 50% -10%,
+      rgba(224, 26, 36, 0.1),
+      transparent 60%
+    ),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-deep) 100%);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}

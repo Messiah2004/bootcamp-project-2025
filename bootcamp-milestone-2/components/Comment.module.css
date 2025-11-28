@@ -1,0 +1,34 @@
+.comment {
+  margin-top: 16px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: #1b0a0b;
+  border: 1px solid rgba(224, 26, 36, 0.25);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 6px;
+}
+
+.user {
+  margin: 0;
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: #f7f3f1;
+}
+
+.time {
+  font-size: 0.8rem;
+  color: #cbbfbf;
+}
+
+.body {
+  margin: 0;
+  color: #efe7e5;
+  font-size: 0.94rem;
+  line-height: 1.5;
+}

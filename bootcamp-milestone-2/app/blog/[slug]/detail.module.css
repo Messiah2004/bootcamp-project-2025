@@ -53,3 +53,9 @@
 .back:hover {
   text-decoration: underline;
 }
+
+.commentsTitle {
+  margin-top: 12px;
+  margin-bottom: 4px;
+  font-size: 1.1rem;
+}

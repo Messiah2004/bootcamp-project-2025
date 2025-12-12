@@ -106,3 +106,15 @@
     padding: 18px;
   }
 }
+
+.success {
+  margin-top: 8px;
+  color: lightgreen;
+  font-size: 0.9rem;
+}
+
+.error {
+  margin-top: 8px;
+  color: #ff7b7b;
+  font-size: 0.9rem;
+}

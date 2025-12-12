@@ -5,17 +5,17 @@ import connectDB from "@/database/db";
 import BlogModel, { type Blog } from "@/database/blogSchema";
 import styles from "./detail.module.css";
 import Comment from "@/components/Comment";
+import CommentForm from "@/components/CommentForm";
 
 type Params = { slug: string };
 
 export async function generateStaticParams() {
   await connectDB();
 
-  const rawBlogs = await BlogModel.find().select("slug").lean();
-
+  const rawBlogs = await BlogModel.find().select("slug").lean().exec();
   const blogs = rawBlogs as unknown as { slug: string }[];
 
-  return blogs.map((b: { slug: string }) => ({ slug: b.slug }));
+  return blogs.map((b) => ({ slug: b.slug }));
 }
 
 export async function generateMetadata({
@@ -23,7 +23,7 @@ export async function generateMetadata({
 }: {
   params: Promise<Params>;
 }) {
-  const { slug } = await params;
+  const { slug } = await params; // ⬅️ unwrap the Promise
   await connectDB();
 
   const post = await BlogModel.findOne({ slug }).lean<Blog>();
@@ -40,7 +40,7 @@ export default async function BlogDetail({
 }: {
   params: Promise<Params>;
 }) {
-  const { slug } = await params;
+  const { slug } = await params; // ⬅️ unwrap the Promise
   await connectDB();
 
   const post = await BlogModel.findOne({ slug }).lean<Blog>();
@@ -51,7 +51,7 @@ export default async function BlogDetail({
   const dateString =
     post.date instanceof Date
       ? post.date.toLocaleDateString("en-US")
-      : post.date;
+      : (post.date as unknown as string);
 
   return (
     <main className={styles.container}>
@@ -65,15 +65,24 @@ export default async function BlogDetail({
 
         <p className={styles.body}>{post.content}</p>
 
-        {post.comments && post.comments.length > 0 && (
-          <>
-            <hr className={styles.hr} />
-            <h2 className={styles.commentsTitle}>Comments</h2>
-            {post.comments.map((c, idx) => (
-              <Comment key={idx} comment={c} />
-            ))}
-          </>
-        )}
+        <section className={styles.commentsSection}>
+          <hr className={styles.hr} />
+          <h2 className={styles.commentsTitle}>Comments</h2>
+
+          {post.comments && post.comments.length > 0 ? (
+            <div className={styles.commentsList}>
+              {post.comments.map((c, idx) => (
+                <Comment key={idx} comment={c} />
+              ))}
+            </div>
+          ) : (
+            <p className={styles.noComments}>
+              No comments yet. Be the first to comment!
+            </p>
+          )}
+
+          <CommentForm slug={post.slug} />
+        </section>
 
         <hr className={styles.hr} />
         <p>
